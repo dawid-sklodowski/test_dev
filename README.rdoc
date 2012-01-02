@@ -41,7 +41,7 @@ Then you can run prepared example test
         #Do Something
       end
 
-      test 'it does some time expensive operation' do
+      test 'doing some time expensive operation' do
         #You can use Active Record here.
         #User.all.first.albums.collect
         sleep 1
@@ -51,9 +51,9 @@ Then you can run prepared example test
 
 == Example test output
 Testing one of my applications.
-    test 'it loads albums of first user' do
-      User.all.first.albums.collect
-    end
+  test 'loading albums of the first user' do
+    User.all.first.albums.collect
+  end
 
 Results
 
@@ -62,7 +62,7 @@ Results
 
 
     Running test number 1
-    Testing it does some time expensive operation
+    Testing loading albums of the first user
          user     system      total        real
     First Run  0.020000   0.000000   0.020000 (  0.030463)
     Queries: --------------------------------------------------------------------------------------------------------------
