@@ -40,10 +40,43 @@ Then you can run prepared example test
 
       test 'it does some time expensive operation' do
         #You can use Active Record here.
-        sleep 3
-        puts 'Done'
+        #User.all.first.albums.collect
+        sleep 1
       end
 
     end
 
+== Example test output
+Testing one of my applications.
+    User.all.first.albums.collect
+
+Results
+
+    Start testing
+
+
+
+    Running test number 1
+    Testing it does some time expensive operation
+         user     system      total        real
+    First Run  0.020000   0.000000   0.020000 (  0.030463)
+    Queries: --------------------------------------------------------------------------------------------------------------
+     SQL (0.2ms)   SET NAMES 'utf8'
+     SQL (0.2ms)   SET SQL_AUTO_IS_NULL=0
+     User Load (1.3ms)   SELECT * FROM `users`
+     Album Load (1.0ms)   SELECT * FROM `albums` WHERE (`albums`.user_id = 1) ORDER BY updated_at DESC
+     Album Columns (2.5ms)   SHOW FIELDS FROM `albums`
+     Photo Columns (1.9ms)   SHOW FIELDS FROM `pictures`
+     Photo Load (0.7ms)   SELECT * FROM `pictures` WHERE (`pictures`.`id` IN (45,128,17) AND (parent_type = 'Album')) AND ( (`pictures`.`type` = 'Photo' ) )
+
+    ------------------------------------------------------------------------------------------------------------------------
+    Second Run  0.000000   0.000000   0.000000 (  0.003862)
+    Queries: --------------------------------------------------------------------------------------------------------------
+     User Load (0.6ms)   SELECT * FROM `users`
+     Album Load (0.4ms)   SELECT * FROM `albums` WHERE (`albums`.user_id = 1) ORDER BY updated_at DESC
+     Photo Load (0.5ms)   SELECT * FROM `pictures` WHERE (`pictures`.`id` IN (45,128,17) AND (parent_type = 'Album')) AND ( (`pictures`.`type` = 'Photo' ) )
+
+    ------------------------------------------------------------------------------------------------------------------------
+
 Copyright (c) 2011 Dawid Sklodowski, released under the MIT license
+                                            d\

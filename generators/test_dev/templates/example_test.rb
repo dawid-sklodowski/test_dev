@@ -23,8 +23,8 @@ class TestingSelf < TestDev
 
   test 'it does some time expensive operation' do
     #You can use Active Record here.
-    sleep 3
-    puts 'Done'
+    #User.all.first.albums.collect
+    sleep 1
   end
 
 
