@@ -1,0 +1,8 @@
+Description:
+    Creates test/test_dev_helper.rb file
+
+Example:
+    ./script/generate test_dev install
+
+    This will create:
+        test/test_dev_helper.rb

@@ -1,0 +1,49 @@
+===TestDev
+This plugin creates DSL for performance testing. By default it runs tests for developement database. Syntax is similar to TestUnit and Rspec.
+Created for Rails 2.3.x
+
+
+== Usage
+Install
+  script/plugin install git://github.com/dawid-sklodowski/test_dev.git
+Run generator
+  script/generate test_dev install
+It creates:
+  test/test_dev_helper.rb
+  test/test_dev/example_test.rb
+Then you can run prepared example test
+  ruby test/test_dev/example_test.rb
+
+
+== Example test file
+    require File.dirname(__FILE__) + '/../test_dev_helper'
+
+    class TestingSelf < TestDev
+
+      before :all do
+        puts 'Start testing'
+      end
+
+      before :each do
+        @test_num ||=0
+        @test_num += 1
+        puts "\n\n\nRunning test number #{@test_num}"
+      end
+
+      after :all do
+        #Do Something
+      end
+
+      after :each do
+        #Do Something
+      end
+
+      test 'it does some time expensive operation' do
+        #You can use Active Record here.
+        sleep 3
+        puts 'Done'
+      end
+
+    end
+
+Copyright (c) 2011 Dawid Sklodowski, released under the MIT license
