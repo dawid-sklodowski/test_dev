@@ -1,5 +1,6 @@
 ===TestDev
 This plugin creates DSL for performance testing. By default it runs tests for developement database. Syntax is similar to TestUnit and Rspec.
+Each test is being run two times, so you can see how caching works (look at example at the bottom of this doc).
 Created for Rails 2.3.x
 
 
@@ -48,7 +49,9 @@ Then you can run prepared example test
 
 == Example test output
 Testing one of my applications.
-    User.all.first.albums.collect
+    test 'it loads albums of first user' do
+      User.all.first.albums.collect
+    end
 
 Results
 
@@ -79,4 +82,3 @@ Results
     ------------------------------------------------------------------------------------------------------------------------
 
 Copyright (c) 2011 Dawid Sklodowski, released under the MIT license
-                                            d\
