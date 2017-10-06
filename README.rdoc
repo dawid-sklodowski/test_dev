@@ -83,4 +83,4 @@ Results
 
     ------------------------------------------------------------------------------------------------------------------------
 
-Copyright (c) 2011 Dawid Sklodowski, released under the MIT license
+Copyright (c) 2011 [Lean Logics](http://leanlogics.com), released under the MIT license
